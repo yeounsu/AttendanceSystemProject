@@ -5,6 +5,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
+=======
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="output" path=""/>
+>>>>>>> branch 'main' of https://github.com/codnjs444/AttendanceSystemProject
 </classpath>
