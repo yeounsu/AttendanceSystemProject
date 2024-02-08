@@ -1,0 +1,131 @@
+package teampj;
+
+public class Login_Bean {
+	private String id;
+	private String value;
+	private String password;
+	private String name;
+	private String birth;
+	private String address;
+	private String gender;
+	private String phoneNum;
+	private String major;
+	private String class_name;
+	private String access_level;
+	private String profile_name;
+	private String profile_uploadName;
+	private String profile_extension;
+	
+	
+	public String getid() {
+		return id;
+	}
+	public void setid(String id) {
+		this.id = id;
+	}
+	
+	
+	public String getvalue() {
+		return value;
+	}
+	public void setvalue(String value) {
+		this.value = value;
+	}
+	
+	
+	public String getpassword() {
+		return password;
+	}
+	public void setpassword(String password) {
+		this.password = password;
+	}
+	
+	
+	public String getname() {
+		return name;
+	}
+	public void setname(String name) {
+		this.name = name;
+	}
+	
+	
+	public String getbirth() {
+		return birth;
+	}
+	public void setbirth(String birth) {
+		this.birth = birth;
+	}
+	
+	
+	public String getaddress() {
+		return address;
+	}
+	public void setaddress(String address) {
+		this.address = address;
+	}
+	
+	
+	public String getgender() {
+		return gender;
+	}
+	public void setgender(String gender) {
+		this.gender = gender;
+	}
+	
+	
+	public String getphoneNum() {
+		return phoneNum;
+	}
+	public void setphoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+	
+	
+	public String getmajor() {
+		return major;
+	}
+	public void setmajor(String major) {
+		this.major = major;
+	}
+	
+	
+	public String getclass_name() {
+		return class_name;
+	}
+	public void setclass_name(String class_name) {
+		this.class_name = class_name;
+	}
+	
+	
+	public String getaccess_level() {
+		return access_level;
+	}
+	public void setaccess_level(String access_level) {
+		this.access_level = access_level;
+	}
+	
+	
+	public String getprofile_name() {
+		return profile_name;
+	}
+	public void setprofile_name(String profile_name) {
+		this.profile_name = profile_name;
+	}
+	
+	
+	public String getprofile_uploadName() {
+		return profile_uploadName;
+	}
+	public void setprofile_uploadName(String profile_uploadName) {
+		this.profile_uploadName = profile_uploadName;
+	}
+	
+	
+	public String getprofile_extension() {
+		return profile_extension;
+	}
+	public void setprofile_extension(String profile_extension) {
+		this.profile_extension = profile_extension;
+	}	
+
+}
