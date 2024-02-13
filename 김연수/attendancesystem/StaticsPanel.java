@@ -1,4 +1,4 @@
-package attendancesystema;
+package attendancesystem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +11,8 @@ import java.sql.SQLException;
 
 public class StaticsPanel extends JPanel {
     private JPanel buttonPanel; // classname 버튼이 들어갈 패널
-    private JButton selectedButton; // 선택된 classname 버튼을 저장할 변수
     private JPanel contentPanel; // 내용을 표시할 패널
+    private JPanel statisticsButtonPanel; // 일, 월, 총 버튼이 들어갈 패널
     private JLabel placeholderLabel; // 내용이 표시될 때 사용할 레이블
 
     public StaticsPanel() {
@@ -21,12 +21,15 @@ public class StaticsPanel extends JPanel {
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 0, 0));
         add(buttonPanel, BorderLayout.NORTH);
 
+        statisticsButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        add(statisticsButtonPanel, BorderLayout.CENTER);
+
         contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         JScrollPane scrollPane = new JScrollPane(contentPanel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-        add(scrollPane, BorderLayout.CENTER);
+        add(scrollPane, BorderLayout.SOUTH);
 
         placeholderLabel = new JLabel("여기에 내용을 표시합니다.");
         placeholderLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -66,7 +69,7 @@ public class StaticsPanel extends JPanel {
     }
 
     private void createStatisticsButtons(String className) {
-        contentPanel.removeAll();
+        statisticsButtonPanel.removeAll();
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         JButton dayButton = new JButton("일");
@@ -90,7 +93,7 @@ public class StaticsPanel extends JPanel {
                 contentPanel.setBackground(Color.WHITE); // 모든 경우에 대해 배경색 설정
                 revalidate();
                 repaint();
-            }	
+            }
         });
 
         JButton monthButton = new JButton("월");
@@ -144,50 +147,82 @@ public class StaticsPanel extends JPanel {
         panel.add(dayButton);
         panel.add(monthButton);
         panel.add(totalButton);
-        contentPanel.add(panel);
+        statisticsButtonPanel.add(panel);
 
         revalidate();
         repaint();
     }
 
     private JPanel createJavaStaticChartPanel() {
-        return new StaticMgr(MysqlConnection.getConnection()).createJavaStaticChartPanel();
+        JPanel javaStaticChartPanel = new StaticMgr(MysqlConnection.getConnection()).createJavaStaticChartPanel();
+        javaStaticChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return javaStaticChartPanel;
     }
 
     private JPanel createCad1StaticChartPanel() {
-        return new StaticMgr(MysqlConnection.getConnection()).createCad1StaticChartPanel();
+        JPanel cad1StaticChartPanel = new StaticMgr(MysqlConnection.getConnection()).createCad1StaticChartPanel();
+        cad1StaticChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return cad1StaticChartPanel;
     }
 
     private JPanel createCad2StaticChartPanel() {
-        return new StaticMgr(MysqlConnection.getConnection()).createCad2StaticChartPanel();
+        JPanel cad2StaticChartPanel = new StaticMgr(MysqlConnection.getConnection()).createCad2StaticChartPanel();
+        cad2StaticChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return cad2StaticChartPanel;
     }
 
     private JPanel createComStaticChartPanel() {
-        return new StaticMgr(MysqlConnection.getConnection()).createComStaticChartPanel();
+        JPanel comStaticChartPanel = new StaticMgr(MysqlConnection.getConnection()).createComStaticChartPanel();
+        comStaticChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return comStaticChartPanel;
     }
+
     private JPanel createJavaMonthlyBarChartPanel() {
-        return new StaticMgr(MysqlConnection.getConnection()).createJavaMonthlyBarChartPanel();
+        JPanel javaMonthlyBarChartPanel = new StaticMgr(MysqlConnection.getConnection()).createJavaMonthlyBarChartPanel();
+        javaMonthlyBarChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return javaMonthlyBarChartPanel;
     }
+
     private JPanel createCad1MonthlyBarChartPanel() {
-        return new StaticMgr(MysqlConnection.getConnection()).createCad1MonthlyBarChartPanel();
+        JPanel cad1MonthlyBarChartPanel = new StaticMgr(MysqlConnection.getConnection()).createCad1MonthlyBarChartPanel();
+        cad1MonthlyBarChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return cad1MonthlyBarChartPanel;
     }
+
     private JPanel createCad2MonthlyBarChartPanel() {
-        return new StaticMgr(MysqlConnection.getConnection()).createCad2MonthlyBarChartPanel();
+        JPanel cad2MonthlyBarChartPanel = new StaticMgr(MysqlConnection.getConnection()).createCad2MonthlyBarChartPanel();
+        cad2MonthlyBarChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return cad2MonthlyBarChartPanel;
     }
+
     private JPanel createComMonthlyBarChartPanel() {
-        return new StaticMgr(MysqlConnection.getConnection()).createComMonthlyBarChartPanel();
+        JPanel comMonthlyBarChartPanel = new StaticMgr(MysqlConnection.getConnection()).createComMonthlyBarChartPanel();
+        comMonthlyBarChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return comMonthlyBarChartPanel;
     }
+
     private JPanel createJavaoverallStaticChartPanel() {
-    	return new StaticMgr(MysqlConnection.getConnection()).createJavaoverallStaticChartPanel();
+        JPanel javaOverallStaticChartPanel = new StaticMgr(MysqlConnection.getConnection()).createJavaoverallStaticChartPanel();
+        javaOverallStaticChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return javaOverallStaticChartPanel;
     }
+
     private JPanel createCad1overallStaticChartPanel() {
-    	return new StaticMgr(MysqlConnection.getConnection()).createCad1overallStaticChartPanel();
+        JPanel cad1OverallStaticChartPanel = new StaticMgr(MysqlConnection.getConnection()).createCad1overallStaticChartPanel();
+        cad1OverallStaticChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return cad1OverallStaticChartPanel;
     }
+
     private JPanel createCad2overallStaticChartPanel() {
-    	return new StaticMgr(MysqlConnection.getConnection()).createCad2overallStaticChartPanel();
+        JPanel cad2OverallStaticChartPanel = new StaticMgr(MysqlConnection.getConnection()).createCad2overallStaticChartPanel();
+        cad2OverallStaticChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return cad2OverallStaticChartPanel;
     }
+
     private JPanel createComoverallStaticChartPanel() {
-    	return new StaticMgr(MysqlConnection.getConnection()).createComoverallStaticChartPanel();
+        JPanel comOverallStaticChartPanel = new StaticMgr(MysqlConnection.getConnection()).createComoverallStaticChartPanel();
+        comOverallStaticChartPanel.setBorder(BorderFactory.createEmptyBorder());
+        return comOverallStaticChartPanel;
     }
 
     public static void main(String[] args) {

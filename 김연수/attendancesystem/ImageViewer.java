@@ -1,10 +1,10 @@
-package attendancesystema;
+package attendancesystem;
 import javax.swing.*;
 import java.awt.*;
 
 public class ImageViewer extends JFrame {
 
-    private JPanel currentPanel; // í˜„ì¬ ë³´ì—¬ì§€ê³  ìˆëŠ” íŒ¨ë„ì„ ì¶”ì í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+    private JPanel currentPanel; // ÇöÀç º¸¿©Áö°í ÀÖ´Â ÆĞ³ÎÀ» ÃßÀûÇÏ±â À§ÇÑ º¯¼ö
 
     public ImageViewer() {
         initializeUI();
@@ -26,7 +26,7 @@ public class ImageViewer extends JFrame {
         layeredPane.add(topPanel, JLayeredPane.DEFAULT_LAYER);
         topPanel.setBounds(300, 0, 1100, 130);
 
-        JLabel toplabel = new JLabel("     ë™ì˜ëŒ€ í•™ìƒ êµìœ¡ì› í”„ë¡œê·¸ë¨");
+        JLabel toplabel = new JLabel("     µ¿ÀÇ´ë ÇĞ»ı ±³À°¿ø ÇÁ·Î±×·¥");
         toplabel.setForeground(Color.white);
         toplabel.setFont(new Font("Inter", Font.BOLD, 30));
         topPanel.add(toplabel, BorderLayout.WEST);
@@ -35,8 +35,8 @@ public class ImageViewer extends JFrame {
         buttonPanel.setOpaque(false);
         topPanel.add(buttonPanel, BorderLayout.EAST);
 
-        JButton button1 = new JButton("ë¡œê·¸ì•„ì›ƒ");
-        JButton button2 = new JButton("ë™ê¸°í™”");
+        JButton button1 = new JButton("·Î±×¾Æ¿ô");
+        JButton button2 = new JButton("µ¿±âÈ­");
         buttonPanel.add(button1);
         buttonPanel.add(button2);
         button1.setBackground(Color.WHITE);
@@ -63,7 +63,7 @@ public class ImageViewer extends JFrame {
         int width = 280;
         int height = 80;
 
-        String[] buttonNames = {"í™ˆ", "ê°•ì˜ ì •ë³´", "ì¶œê²° ê´€ë¦¬", "ìƒë‹´ ì‹ ì²­", "ì±„íŒ…ì°½", "í”„ë¡œí•„ ìˆ˜ì •", "ì²­ì†Œ ë‹¹ë²ˆ", "ê³µì§€ ì‚¬í•­", "í‡´ì‹¤"};
+        String[] buttonNames = {"È¨", "°­ÀÇ Á¤º¸", "Ãâ°á °ü¸®", "»ó´ã ½ÅÃ»", "Ã¤ÆÃÃ¢", "ÇÁ·ÎÇÊ ¼öÁ¤", "Ã»¼Ò ´ç¹ø", "°øÁö »çÇ×", "Åğ½Ç"};
 
         for (int i = 0; i < buttonNames.length; i++) {
             JButton button = new JButton(buttonNames[i]);
@@ -84,7 +84,7 @@ public class ImageViewer extends JFrame {
                 button.setForeground(Color.black);
                 button.setBorderPainted(false);
                 
-                button.addActionListener(e ->  showPanel(new StaticsPanel(), layeredPane)); // StaticsPanel ë³´ì—¬ì£¼ëŠ” ë™ì‘
+                button.addActionListener(e ->  showPanel(new StaticsPanel(), layeredPane)); // StaticsPanel º¸¿©ÁÖ´Â µ¿ÀÛ
                 
             }else if (i == buttonNames.length - 6) {
                 button.setBackground(new Color(255, 255, 255));
@@ -92,7 +92,7 @@ public class ImageViewer extends JFrame {
               button.setForeground(Color.black);
               button.setBorderPainted(false);
               
-              button.addActionListener(e ->  showPanel(new CounselingPanel(), layeredPane)); // CounselingPanel ë³´ì—¬ì£¼ëŠ” ë™ì‘
+              button.addActionListener(e ->  showPanel(new CounselingPanel(), layeredPane)); // CounselingPanel º¸¿©ÁÖ´Â µ¿ÀÛ
               
           }else if (i == buttonNames.length - 4) {
               button.setBackground(new Color(255, 255, 255));
@@ -100,14 +100,14 @@ public class ImageViewer extends JFrame {
             button.setForeground(Color.black);
             button.setBorderPainted(false);
             
-            button.addActionListener(e ->  showPanel(new UserProfilePanel(), layeredPane)); // CounselingPanel ë³´ì—¬ì£¼ëŠ” ë™ì‘
+            button.addActionListener(e ->  showPanel(new ProfilePanel(), layeredPane)); // CounselingPanel º¸¿©ÁÖ´Â µ¿ÀÛ
           }else if (i == buttonNames.length - 3) {
                 button.setBackground(new Color(255, 255, 255));
                  button.setFont(new Font("Inter", Font.PLAIN, 18));
                  button.setForeground(Color.black);
                  button.setBorderPainted(false);
                  
-                 button.addActionListener(e -> showPanel(new CleanPanel(), layeredPane)); // CleanPanel ë³´ì—¬ì£¼ëŠ” ë™ì‘
+                 button.addActionListener(e -> showPanel(new CleanPanel(), layeredPane)); // CleanPanel º¸¿©ÁÖ´Â µ¿ÀÛ
       }else {
                 button.setBackground(Color.WHITE);
                 button.setFont(new Font("Inter", Font.PLAIN, 18));
@@ -118,15 +118,15 @@ public class ImageViewer extends JFrame {
 
     	
 
-	// ìƒˆë¡œìš´ íŒ¨ë„ì„ ë³´ì—¬ì£¼ëŠ” ë©”ì„œë“œ
+	// »õ·Î¿î ÆĞ³ÎÀ» º¸¿©ÁÖ´Â ¸Ş¼­µå
     private void showPanel(JPanel panel, JLayeredPane layeredPane) {
-        // í˜„ì¬ ë³´ì—¬ì§€ê³  ìˆëŠ” íŒ¨ë„ì„ ìˆ¨ê¹€
+        // ÇöÀç º¸¿©Áö°í ÀÖ´Â ÆĞ³ÎÀ» ¼û±è
         if (currentPanel != null) {
             currentPanel.setVisible(false);
         }
-        // ìƒˆë¡œìš´ íŒ¨ë„ì„ ì¶”ê°€í•˜ê³  ë³´ì—¬ì¤Œ
+        // »õ·Î¿î ÆĞ³ÎÀ» Ãß°¡ÇÏ°í º¸¿©ÁÜ
         currentPanel = panel;
-        panel.setBounds(300, 130, 1100, 770); // íŒ¨ë„ì˜ ìœ„ì¹˜ì™€ í¬ê¸° ì§€ì •
+        panel.setBounds(300, 130, 1100, 770); // ÆĞ³ÎÀÇ À§Ä¡¿Í Å©±â ÁöÁ¤
         layeredPane.add(panel, JLayeredPane.MODAL_LAYER);
         panel.setVisible(true);
     }
